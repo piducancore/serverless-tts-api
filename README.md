@@ -9,13 +9,15 @@ This is a minimal example of a _serverless_ Text to Speech API using [IBM Watson
 
 The API endpoint is at `/api/demo` and accepts two parameters: `text` and `voice`.
 
-- `text`: string _(required)_
+- `text` _(required)_: String
 
-  - For example `Hello world!` or any string of text you want to turn into speech.
+  Example: `Hello world!` or any string of text you want to turn into speech.
 
-- `voice`: string _(optional)_
+- `voice` _(optional)_: String
 
-  - For example `en-US_MichaelV3Voice` _(default)_ or any of the _Allowable values_ listed [here](https://cloud.ibm.com/apidocs/text-to-speech?code=node#synthesize).
+  Example: `en-US_MichaelV3Voice` _(default)_ or any of the _Allowable values_ listed [here](https://cloud.ibm.com/apidocs/text-to-speech?code=node#synthesize).
+
+A sample query url would look like this: `/api/demo?text="say something"`
 
 ## Run your own
 
