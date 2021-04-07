@@ -5,13 +5,21 @@ This is a minimal example of a _serverless_ Text to Speech API using [IBM Watson
 [ibm watson]: https://vercel.com/docs/serverless-functions/introduction
 [vercel]: https://vercel.com/docs/serverless-functions/introduction
 
-## How to use
+## Usage
+
+The API endpoint is at `/api/demo` and accepts two parameters: `text` and `voice`.
+
+- `text`: string _(required)_
+
+  - For example `Hello world!` or any string of text you want to turn into speech.
+
+- `voice`: string _(optional)_
+
+  - For example `en-US_MichaelV3Voice` _(default)_ or any of the _Allowable values_ listed [here](https://cloud.ibm.com/apidocs/text-to-speech?code=node#synthesize).
+
+## Run your own
 
 First you need to register at [IBM Cloud](https://cloud.ibm.com/), create a new [Text to Speech](https://cloud.ibm.com/catalog/services/text-to-speech) resource and take note of your `API_KEY` and `SERVICE_URL`.
-
-Then you can [Run this locally](#run-this-locally) or [Deploy to Vercel](#deploy-to-vercel).
-
-## Run this locally
 
 Install the [Vercel CLI](https://vercel.com/cli) if you haven't already:
 
@@ -19,7 +27,7 @@ Install the [Vercel CLI](https://vercel.com/cli) if you haven't already:
 yarn global add vercel
 ```
 
-Create an `.env` file like the following and fill it using your Text to Speech resource credentials:
+Create an `.env` file like the following and fill it using your Text to Speech resource credentials (your `API_KEY` and `SERVICE_URL`):
 
 ```sh
 API_KEY=YOUR API KEY
