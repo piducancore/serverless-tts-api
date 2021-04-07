@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     const { result } = await tts.synthesize({
       text: req.query.text,
       accept: "audio/mp3",
-      voice: "en-US_MichaelV3Voice" /* For spanish use "es-LA_SofiaV3Voice" */,
+      voice: req.query.voice || "en-US_MichaelV3Voice" /* For spanish use "es-LA_SofiaV3Voice" */,
     });
     result.pipe(res);
   } catch (error) {
