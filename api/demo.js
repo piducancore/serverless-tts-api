@@ -25,10 +25,10 @@ module.exports = async (req, res) => {
       voice: voice ? voice : "en-US_MichaelV3Voice" /* For spanish use "es-LA_SofiaV3Voice" */,
     });
     if (buffer) {
-      const buffer = await streamToBuffer(result);
+      const data = await streamToBuffer(result);
       res.setHeader("Content-Type", "audio/mpeg");
       res.setHeader("Content-Disposition", "filename=demo.mp3");
-      res.send(buffer);
+      res.send(data);
     } else {
       result.pipe(res);
     }
