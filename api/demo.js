@@ -18,12 +18,13 @@ function streamToBuffer(stream) {
 
 module.exports = async (req, res) => {
   try {
+    const { text, voice, buffer } = req.query;
     const { result } = await tts.synthesize({
-      text: req.query.text,
+      text,
       accept: "audio/mp3",
-      voice: req.query.voice || "en-US_MichaelV3Voice" /* For spanish use "es-LA_SofiaV3Voice" */,
+      voice: voice ? voice : "en-US_MichaelV3Voice" /* For spanish use "es-LA_SofiaV3Voice" */,
     });
-    if (req.query.buffer) {
+    if (buffer) {
       const buffer = await streamToBuffer(result);
       res.setHeader("Content-Type", "audio/mpeg");
       res.setHeader("Content-Disposition", "filename=demo.mp3");
