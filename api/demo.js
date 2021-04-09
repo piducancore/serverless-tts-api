@@ -25,8 +25,7 @@ module.exports = async (req, res) => {
     });
     if (req.query.buffer) {
       const buffer = await streamToBuffer(result);
-      res.setHeader("Content-Type", "application/mp3");
-      res.setHeader("Accept-Ranges", "bytes");
+      res.setHeader("Content-Type", "audio/mpeg");
       res.setHeader("Content-Disposition", "filename=demo.mp3");
       res.send(buffer);
     } else {
